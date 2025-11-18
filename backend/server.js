@@ -6,33 +6,33 @@ const path = require('path');
 
 const app = express();
 
-// ⭐ FIXED CORS (Works on Phone + Desktop + Vercel + Render)
+// ⭐ FIXED CORS (Phone, Desktop, Vercel, Render)
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://full-stack-assignment-gules.vercel.app" // your frontend URL
+      "https://full-stack-assignment-gules.vercel.app"  // your frontend URL
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   })
 );
 
-// Body parsers
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static uploads folder (if using Multer)
+// Static uploads folder
 app.use('/uploads', express.static('uploads'));
 
-// ⭐ API ROUTES
+// Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/clients', require('./routes/clients'));
 app.use('/api/contacts', require('./routes/contacts'));
 app.use('/api/newsletter', require('./routes/newsletter'));
 
-// ⭐ Connect to MongoDB
+// ⭐ Database + Server Start
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -41,9 +41,10 @@ mongoose
   .then(() => {
     console.log("MongoDB connected successfully");
 
-    // ⭐ Start Server
     const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    app.listen(PORT, () =>
+      console.log(`Server running successfully on port ${PORT}`)
+    );
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err.message);
