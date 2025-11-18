@@ -142,9 +142,9 @@ Deploy
 
 🔗 Live Links
 
-Frontend: https://your-frontend-url.vercel.app
+Frontend: https://flipr-phi.vercel.app/
 
-Backend: https://your-backend-url.onrender.com
+Backend: https://flipr-uzcs.onrender.com
 
 API Base URL: /api/*
 
