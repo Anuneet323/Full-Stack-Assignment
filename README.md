@@ -144,7 +144,7 @@ Deploy
 
 🔗 Live Links
 
-Frontend: https://flipr-phi.vercel.app/
+Frontend: https://full-stack-assignment-gules.vercel.app
 
 Backend: https://flipr-uzcs.onrender.com
 
